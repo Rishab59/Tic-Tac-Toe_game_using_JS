@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<!--
+
+    Author      : Rishab.H
+    Description : 
+                  * This is a fully functional Tic Tac Toe Game Created using JavaScript.
+                  * It automatically determine the Winnner ('X' or 'O').
+                  * This Code also determines whether the game is draw.
+
+-->
+
+<html>
+
+    <head>
+
+        <title>Tic Tac Toe</title>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        
+        <!-- CSS Code -->
+        <style>
+            *
+            {
+                margin : 0 ;
+                padding : 0 ;
+            }
+            #container
+            {
+                width : 100vw ;
+                height : 80vh ;
+                display : flex ;
+                justify-content : center ;
+                align-items : center ;
+            }
+            #small_containers
+            {
+                display : grid ;
+                grid-template-columns : 1fr 1fr 1fr ;
+                width : 50vh ;
+                height : 50vh ;
+            }
+            .btn
+            {
+                color : red ;
+                cursor : pointer ;
+                background-color : #ccc ;
+                font-size : 5vmin ;
+            }
+            .btn:hover
+            {
+                background-color : #ecf0f3 ;
+            }
+            #heading
+            {
+                height : 20vh ;
+                display : flex ;
+                justify-content : center ;
+                align-items : center ;
+                font-size : 6vmin ;
+                font-weight : bolder ;
+                font-style : italic ;
+                text-decoration :  underline dotted red  ;
+                font-family : 'Consolas' ;
+            }
+            hr
+            {
+                border : 3px solid black ;
+            }
+
+        </style>
+
+    </head>
+    
+    <body>
+        
+        <h1 id = "heading">TIC-TAC-TOE by Rishab</h1>
+        <hr>
+
+        <div id = "container">
+            <div id = "small_containers">
+                <button id = "btn0" class = "btn"></button>
+                <button id = "btn1" class = "btn"></button>
+                <button id = "btn2" class = "btn"></button>
+                <button id = "btn3" class = "btn"></button>
+                <button id = "btn4" class = "btn"></button>
+                <button id = "btn5" class = "btn"></button>
+                <button id = "btn6" class = "btn"></button>
+                <button id = "btn7" class = "btn"></button>
+                <button id = "btn8" class = "btn"></button>
+            </div>
+        </div>
+
+        <!-- JavaScript Code -->
+        <script>
+
+            var temp = 0 ;
+            
+            var btn0 = document.getElementById('btn0') ;
+            var btn1 = document.getElementById('btn1') ;
+            var btn2 = document.getElementById('btn2') ;
+            var btn3 = document.getElementById('btn3') ;
+            var btn4 = document.getElementById('btn4') ;
+            var btn5 = document.getElementById('btn5') ;
+            var btn6 = document.getElementById('btn6') ;
+            var btn7 = document.getElementById('btn7') ;
+            var btn8 = document.getElementById('btn8') ;
+            
+            var a = 0 ;
+            var b = 0 ;
+            var c = 0 ;
+            var d = 0 ;
+            var e = 0 ;
+            var f = 0 ;
+            var g = 0 ;
+            var h = 0 ;
+            var i = 0 ;
+
+
+            btn0.addEventListener('click',function(){
+                if(temp%2 == 0)
+                {
+                    btn0.innerText = 'X' ;
+                    btn0.disabled = true ;
+                    a += 10 ;
+                    check() ;
+                }
+                else
+                {
+                    btn0.innerText = 'O' ;
+                    btn0.disabled = true ;
+                    a ++ ;
+                    check() ;
+                }
+                temp++ ;
+            }) ;
+            
+            btn1.addEventListener('click',function(){
+                if(temp%2 == 0)
+                {
+                    btn1.innerText = 'X' ;
+                    btn1.disabled = true ;
+                    b += 10 ;
+                    check() ;
+                }
+                else
+                {
+                    btn1.innerText = 'O' ;
+                    btn1.disabled = true ;
+                    b++ ;
+                    check() ;
+                }
+                temp++ ;
+            }) ;
+            
+            btn2.addEventListener('click',function(){
+                if(temp%2 == 0)
+                {
+                    btn2.innerText = 'X' ;
+                    btn2.disabled = true ;
+                    c += 10 ;
+                    check() ;
+                }
+                else
+                {
+                    btn2.innerText = 'O' ;
+                    btn2.disabled = true ;
+                    c++ ;
+                    check() ;
+                }
+                temp++ ;
+            }) ;
+            
+            btn3.addEventListener('click',function(){
+                if(temp%2 == 0)
+                {
+                    btn3.innerText = 'X' ;
+                    btn3.disabled = true ;
+                    d += 10 ;
+                    check() ;
+                }
+                else
+                {
+                    btn3.innerText = 'O' ;
+                    btn3.disabled = true ;
+                    d++ ;
+                    check() ;
+                }
+                temp++ ;
+            }) ;
+            
+            btn4.addEventListener('click',function(){
+                if(temp%2 == 0)
+                {
+                    btn4.innerText = 'X' ;
+                    btn4.disabled = true ;
+                    e += 10 ;
+                    check() ;
+                }
+                else
+                {
+                    btn4.innerText = 'O' ;
+                    btn4.disabled = true ;
+                    e++ ;
+                    check() ;
+                }
+                temp++ ;
+            }) ;
+            
+            btn5.addEventListener('click',function(){
+                if(temp%2 == 0)
+                {
+                    btn5.innerText = 'X' ;
+                    btn5.disabled = true ;
+                    f += 10 ;
+                }
+                else
+                {
+                    btn5.innerText = 'O' ;
+                    btn5.disabled = true ;
+                    f++ ;
+                    check() ;
+                }
+                temp++ ;
+            }) ;
+            
+            btn6.addEventListener('click',function(){
+                if(temp%2 == 0)
+                {
+                    btn6.innerText = 'X' ;
+                    btn6.disabled = true ;
+                    g += 10 ;
+                    check() ;
+                }
+                else
+                {
+                    btn6.innerText = 'O' ;
+                    btn6.disabled = true ;
+                    g++ ;
+                    check() ;
+                }
+                temp++ ;
+            }) ;
+            
+            btn7.addEventListener('click',function(){
+                if(temp%2 == 0)
+                {
+                    btn7.innerText = 'X' ;
+                    btn7.disabled = true ;
+                    h += 10 ;
+                    check() ;
+                }
+                else
+                {
+                    btn7.innerText = 'O' ;
+                    btn7.disabled = true ;
+                    h++ ;
+                    check() ;
+                }
+                temp++ ;
+            }) ;
+            
+            btn8.addEventListener('click',function(){
+                if(temp%2 == 0)
+                {
+                    btn8.innerText = 'X' ;
+                    btn8.disabled = true ;
+                    i += 10 ;
+                    check() ;
+                }
+                else
+                {
+                    btn8.innerText = 'O' ;
+                    btn8.disabled = true ;
+                    i++ ;
+                    check() ;
+                }
+                temp++ ;
+            }) ;
+
+
+            function check()
+            {
+                
+                var abc = a + b + c ; // row 1.
+                var def = d + e + f ; // row 2.
+                var ghi = g + h + i ; // row 3.
+                var aei = a + e + i ; // diagonal left to right.
+                var gec = g + e + c ; // diagonal right to left.
+                var adg = a + d + g ; // column 1.
+                var beh = b + e + h ; // column 2.
+                var cfi = c + f + i ; // column 3.
+
+                var total = a + b + c + d + e + f + g + h + i ;
+
+                setTimeout(() => {
+                    
+                    if((abc == 3) || (def == 3) || (ghi == 3) || (aei == 3) || (gec == 3) || (adg == 3) || (beh == 3) || (cfi == 3))
+                    {
+                        alert("O Wins !!!") ;
+                        location.reload() ;
+                    }
+
+                    else if((abc == 30) || (def == 30) || (ghi == 30) || (aei == 30) || (gec == 30) || (adg == 30) || (beh == 30) || (cfi == 30))
+                    {
+                        alert("X Wins !!!") ;
+                        location.reload() ;
+                    }
+
+                    /*
+                     * X means 10 numbers is increamented.
+                     * O means 1 number is incremented.
+                     * X 5 times so 5x10 = 50
+                     * O 4 times so 4x1 = 4
+                     * So, totally 54 means no more boxes left to play.
+                     */
+
+                    if((total == 54) && ((abc != 3) && (def != 3) && (ghi != 3) && (aei != 3) && (gec != 3) && (adg != 3) && (beh != 3) && (cfi != 3)) && ((abc != 30) && (def != 30) && (ghi != 30) && (aei != 30) && (gec != 30) && (adg != 30) && (beh != 30) && (cfi != 30)))
+                    {
+                        alert("Draw !!!") ;
+                        location.reload() ;
+                    }
+
+                }) ;
+
+            }
+
+        </script>
+
+    </body>
+
+</html>
+
+<!-- End of Code -->
