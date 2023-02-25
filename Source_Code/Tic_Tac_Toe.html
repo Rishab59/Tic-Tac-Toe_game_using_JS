@@ -17,14 +17,17 @@
         <title>Tic Tac Toe</title>
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <link rel = "shortcut icon" type = "image/png" href = "../Icon/letter-r.png">
         
         <!-- CSS Code -->
         <style>
+            
             *
             {
                 margin : 0 ;
                 padding : 0 ;
             }
+            
             #container
             {
                 width : 100vw ;
@@ -33,6 +36,7 @@
                 justify-content : center ;
                 align-items : center ;
             }
+            
             #small_containers
             {
                 display : grid ;
@@ -40,6 +44,7 @@
                 width : 50vh ;
                 height : 50vh ;
             }
+            
             .btn
             {
                 color : red ;
@@ -47,10 +52,12 @@
                 background-color : #ccc ;
                 font-size : 5vmin ;
             }
+            
             .btn:hover
             {
                 background-color : #ecf0f3 ;
             }
+            
             #heading
             {
                 height : 20vh ;
@@ -63,6 +70,7 @@
                 text-decoration :  underline dotted red  ;
                 font-family : 'Consolas' ;
             }
+            
             hr
             {
                 border : 3px solid black ;
@@ -93,6 +101,16 @@
 
         <!-- JavaScript Code -->
         <script>
+
+            let docTitle = document.title ;
+            
+            window.addEventListener("blur", () => {
+                document.title = "Thanks For Visiting - Rishab" ;
+            }) ;
+
+            window.addEventListener("focus", () => {
+                document.title = docTitle ;
+            }) ;
 
             var temp = 0 ;
             
